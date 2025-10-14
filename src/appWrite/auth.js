@@ -1,47 +1,55 @@
 import config from "../config/config";
 import { Client, Account, ID } from "appwrite";
 
-export class AuthServise {
+class AppWriteAuth {
     client = new Client();
     account;
-    constructor() {
+    constructor(){
         this.client
-            .setProject(config.projectId)
-            .setEndpoint(config.apiUrl)
-            account = new Account(this.client);
+          .setEndpoint(config.apiUrl)
+          .setProject(config.projectId);
+          this.account = new Account(this.client);
     }
 
-    async createAccount({userId = ID.unique() , email, password}){
+    async createAccount( { userId = ID.unique(), email, password, name} ){
         try {
-            user = await this.account.create({userId, email ,password} )
-            if(user){
-                return this.login({email,password})
-            }
+            const user = await this.account.create({userId , email, password, name});
+            if( user ) return this.login({email, password});
+            return user;
+
         } catch (error) {
+            console.log("Error while creating account", error);
             throw error;
         }
     }
 
-    async login ({email, password}){
+    async login({email, password}){
         try {
-            return await this.account.createEmailPasswordSession({email,password})
+            return await this.account.createEmailPasswordSession({email, password});
         } catch (error) {
-            throw error
+            console.log("Error while login", error.massage);
+            throw error;
         }
     }
 
-    async getCurruntAccout(){
+    async getCurrentUser(){
         try {
-            const currentUser = await this.account.get()
-            if(!currentUser) return null;
-            return currentUser;
+            const user = await this.account.get();
+            return user;
         } catch (error) {
-            throw error
+            console.log("Error while fetching current user", error);
+            throw error;
+        }
+    }
+    async logout(){
+        try {
+            this.account.deleteSessions();
+        } catch (error) {
+            log("Error while logout", error);
         }
     }
 
 }
 
-const authServise = new AuthServise();
-
-export default authServise;
+const appWriteAuth = new AppWriteAuth();
+export default appWriteAuth;
