@@ -87,6 +87,13 @@ export class DatabaseServise {
         }
     }
 
+    getFilePreview (fileId){
+        return this.storage.getFilePreview(
+            config.bucketId,
+            fileId
+        )
+    }
+
 }
 
 const databaseServise = new DatabaseServise();
