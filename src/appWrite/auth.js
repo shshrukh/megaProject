@@ -18,7 +18,7 @@ class AppWriteAuth {
             return user;
 
         } catch (error) {
-            console.log("Error while creating account", error);
+            console.log("Appwrite :: createAccount :: error", error.massage);
             throw error;
         }
     }
@@ -27,7 +27,7 @@ class AppWriteAuth {
         try {
             return await this.account.createEmailPasswordSession({email, password});
         } catch (error) {
-            console.log("Error while login", error.massage);
+            console.log("Appwrite :: login :: error", error.massage);
             throw error;
         }
     }
@@ -37,7 +37,7 @@ class AppWriteAuth {
             const user = await this.account.get();
             return user;
         } catch (error) {
-            console.log("Error while fetching current user", error);
+            console.log("Appwrite :: getCurrentUser :: error", error.massage);
             throw error;
         }
     }
@@ -45,7 +45,7 @@ class AppWriteAuth {
         try {
             this.account.deleteSessions();
         } catch (error) {
-            log("Error while logout", error);
+            log("Appwrite :: logout :: error", error.massage);
         }
     }
 
