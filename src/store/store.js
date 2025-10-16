@@ -3,7 +3,9 @@ import authReducer from '../feactres/authSlice'
 
 
 export const store = configureStore({
-    reducer: authReducer
+   reducer: {
+    auth: authReducer,  
+  },
 });
 
 
