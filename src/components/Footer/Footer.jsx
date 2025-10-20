@@ -1,120 +1,106 @@
-import React from 'react'
-import {Link} from 'react-router-dom';
-import Logo from '../../Logo';
+import React from "react";
+import { Link } from "react-router-dom";
+import {Logo} from "../index";
+import { Navigate } from "react-router-dom";
 
 const Footer = () => {
+  // const navigate = Navigate();
   return (
-    <section className='realative overflow-hidden py-10 bg-gray-400 border border-t-2 border-t-black'>
-      <div className='relative z-10 mx-auto max-w-7xl px-4'>
-        <div className='flex flex-wrap'>
-          <div className='w-full p-6 md:w-1/2 lg:w-5/12'>
-            <div className='flex h-full flex-col justify-between'>
-              <div className='mb-4 inline-flex iteam-center'>
-                <Logo width="100px" />
-                <div>
-                  <p className='text-sm text-gray-600'>&copy; copyright 2023</p>
-                </div>
-              </div>
-            </div>
-            <div className='w-full p-6 md:w-1/2 lg:w-2/12'>
-              <div className='h-full'>
-                <h3 className='tracking-px mb-9 text-sm font-semibold uppwecase text-gray-500'>
-                  Company
-                </h3>
-                <ul>
-                  <li className='mb-4'>
-                    <Link className='text-base font-medium text-gray-900 hover:text-gray-700'
-                      to="/">
-                      Features
-                    </Link>
-                  </li>
-                  <li>
+    <footer className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-gray-950 to-black text-gray-300 pt-16 pb-10 border-t border-gray-800">
+      {/* Background Glow */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-500/20 rounded-full blur-[120px]" />
+      </div>
 
-                    <Link className='text-base font-medium text-gray-900 hover:text-gray-700'
-                      to="/">
-                      Prising
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className='text-base font-medium text-gray-900 hover:text-gray-700'
-                      to="/">
-                      Affilate Program
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className='text-base font-medium text-gray-900 hover:text-gray-700'
-                      to="/">
-                      press kit
-                    </Link>
-                  </li>
-                </ul>
-              </div>
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        {/* Top Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
+          {/* Logo + Tagline */}
+          <div>
+            <div className="flex items-center space-x-3 mb-5">
+              <Logo width="100px" />
             </div>
-            <div className='w-full p-6 md:w-1/2 lg:w-2/12'>
-              <div className='h-full'>
-                <h3 className='tracking-px mb-9 text-xs font-semibold uppercase text-gray-500'>
-                  Support
-                </h3>
-                <ul>
-                  <li>
-                    <Link className='text-base font-medium text-gray-900 hover:text-gray-700'
-                      to="/">
-                      Account
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className='text-base font-medium text-gray-900 hover:text-gray-700'
-                      to="/">
-                      help
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className='text-base font-medium text-gray-900 hover:text-gray-700'
-                      to="/">
-                      Contact Us
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className='text-base font-medium text-gray-900 hover:text-gray-700'
-                      to="/">
-                      Custemer Suppoet
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className='w-full p-6 md:w-1/2 lg:w-3/12'> 
-               <div className='h-full'>
-                <h3 className='tracking-px mb-9 text-xs font-semibold uppercase text-gray-500'>
-                  Legals
-                </h3>
-                <ul>
-                  <li>
-                    <Link className='text-base font-medium text-gray-900 hover:text-gray-700'
-                      to="/">
-                      Terms &amp; Conditions
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className='text-base font-medium text-gray-900 hover:text-gray-700'
-                      to="/">
-                      Privacy Policy
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className='text-base font-medium text-gray-900 hover:text-gray-700'
-                      to="/">
-                      Licensing
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              Crafting beautiful experiences with modern web technologies.
+            </p>
+            <p className="mt-5 text-xs text-gray-500">
+              © {new Date().getFullYear()} Shahrukh Arbaz — All rights reserved.
+            </p>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-4">
+              Company
+            </h3>
+            <ul className="space-y-3">
+              {["Features", "Pricing", "Affiliate Program", "Press Kit"].map((item, i) => (
+                <li key={i}>
+                  <Link
+                    to="/"
+                    className="relative group inline-block text-gray-300 hover:text-white transition-colors"
+                  >
+                    {item}
+                    <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-300 group-hover:w-full" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Support */}
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-4">
+              Support
+            </h3>
+            <ul className="space-y-3">
+              {["Account", "Help", "Contact Us", "Customer Support"].map((item, i) => (
+                <li key={i}>
+                  <Link
+                    to="/"
+                    className="relative group inline-block text-gray-300 hover:text-white transition-colors"
+                  >
+                    {item}
+                    <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-gradient-to-r from-blue-400 to-teal-400 transition-all duration-300 group-hover:w-full" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Legals */}
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-4">
+              Legals
+            </h3>
+            <ul className="space-y-3">
+              {["Terms & Conditions", "Privacy Policy", "Licensing"].map((item, i) => (
+                <li key={i}>
+                  <Link
+                    to={item.toLowerCase().replace(" ", "-")}
+                    className="relative group inline-block text-gray-300 hover:text-white transition-colors"
+                  >
+                    {item}
+                    <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-gradient-to-r from-indigo-400 to-purple-400 transition-all duration-300 group-hover:w-full" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-      </div>
-    </section>
-  )
-}
 
-export default Footer
+        {/* Divider Line */}
+        <div className="mt-14 border-t border-gray-800/60"></div>
+
+        {/* Bottom Text */}
+        <div className="text-center mt-8 text-sm text-gray-500">
+          Built with 💜 using React, TailwindCSS, and endless creativity.
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

@@ -4,6 +4,7 @@ import appWriteAuth from './appWrite/auth'
 import {login, logout} from './feactres/authSlice'
 import { Header, Footer } from './components'
 import {Outlet} from 'react-router-dom'
+import { Flag } from 'appwrite'
 
 const App = () => {
   const [loading, setLoading] = useState(true);
