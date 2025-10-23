@@ -1,10 +1,10 @@
 import React, {useState } from 'react';
 import {Link, useNavigate } from 'react-router-dom';
-import {Login as authLogin} from '../feactres/authSlice';
+import {login as authLogin} from '../feactres/authSlice';
 import {Button, Input, Logo} from './index'
 import {useDispatch} from 'react-redux';
 import appWriteAuth from '../appWrite/auth';
-import {useForm} from 'react-hook-form'
+import {useForm} from 'react-hook-form';
 
 
 const Login = () => {
@@ -17,7 +17,6 @@ const Login = () => {
         setError("");
         try {
             const session = await appWriteAuth.login(data);
-            // log this session for more clearity 
             if(session) {
                 const userData = await appWriteAuth.getCurrentUser();
                 if(userData ) dispatch(authLogin(userData))
@@ -63,7 +62,7 @@ const Login = () => {
                     label = "password"
                     placeholder = "Enter your Password"
                     type = "password"
-                    {...register('password'),{required: true}}
+                    {...register('password', {required: true})}
                 />
                 <Button type= "submit" className='w-full'>Sign in</Button>
             </div>

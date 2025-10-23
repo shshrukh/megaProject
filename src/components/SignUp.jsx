@@ -63,9 +63,9 @@ const SignUp = () => {
                         label = "password"
                         placeholder = "Enter your Password"
                         type = "password"
-                        {...register('password'),{required: true}}
+                        {...register('password',{required: true})}
                     />
-                    <Button type= "submit" className='w-full'>Login</Button>
+                    <Button type= "submit" className='w-full'>Create Account</Button>
                 </div>
             </form>
           </div>
