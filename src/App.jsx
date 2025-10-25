@@ -3,7 +3,8 @@ import {useDispatch} from 'react-redux'
 import appWriteAuth from './appWrite/auth'
 import {login, logout} from './feactres/authSlice'
 import { Header, Footer } from './components'
-import {Outlet} from 'react-router-dom'
+import {Outlet} from 'react-router-dom';
+import {RTE} from './components/index'
 
 
 const App = () => {
@@ -18,13 +19,14 @@ const App = () => {
           logout()
         }
       })
-      .finally(()=>{setLoading(false)})
+      .finally(()=>{setLoading(true)})
   },[])
   
   return loading ? (
     <div className='min-h-screen flex flex-wrap content-between bg-gray-400'>
       <div className='w-full block'>
         <Header/>
+          <RTE hello = "hi"/>
           <Outlet/>
         <Footer/>
       </div>

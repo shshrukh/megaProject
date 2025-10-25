@@ -28,7 +28,7 @@ export class DatabaseServise {
         }
     }
 
-    async updatePost( { title, slug, content, featuredImage, status, userId }){
+    async updatePost( slug, { title, content, featuredImage, status, userId }){
         try {
             return await this.databases.updateDocument(
                 config.databaseId,

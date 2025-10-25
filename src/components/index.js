@@ -6,6 +6,9 @@ import Logo from "./Logo";
 import Input from "./Input";
 import SignUp from "./SignUp";
 import Login from "./Login";
+import RTE from "./RTE";
+import Select from "./Select";
+
 
 
 
@@ -17,5 +20,7 @@ export {
     Logo,
     Input,
     Login,
-    SignUp
+    SignUp,
+    RTE ,
+    Select
 }
